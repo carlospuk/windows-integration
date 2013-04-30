@@ -1,5 +1,16 @@
 
 
+>> MODIFIED 2013-04-30 By Carl Partridge
+
+
+- Removed all PV drivers
+- Re-build against .NET 4  (.NET 3.5 not installed on WinServer 2012 by default)
+- Added Windows Server 2012 OS detection
+- Added notes to install GUI
+
+===============================
+
+
 1. The resultant executeables: EucalyptusWindowsIntegration.msi  
     and setup.exe, have to ran as "Administator" on the client.
     Failure to do so will result in a message " Cannot Open Device/File"

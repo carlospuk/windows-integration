@@ -13,7 +13,7 @@
  *   documentation and/or other materials provided with the distribution.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOTmo
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
  * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
  * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
@@ -119,13 +119,11 @@ namespace Com.Eucalyptus.Windows.EucaWindowsService
                     throw new Exception(msg); // will halt the installation
                 }
 
-                string xenPVFile = _installLocation + "\\xenpv.zip";
-                string virtioFile = _installLocation + "\\virtio.zip";
-                string vmwareFile = _installLocation + "\\vmware";
-                string hypervFile = _installLocation + "\\hyperv";
 
-                if (!(File.Exists(xenPVFile) || File.Exists(virtioFile) || File.Exists(vmwareFile) || File.Exists(hypervFile)))
-                    throw new InstallException("No hypervisor is chosen!");                            
+
+                // MODIFIED 2013-04-30 - Carl Partridge
+                // Not compulsary to choose a hypervisor - this may need reverting if other installation steps are inserted on a per-hypervisor basis
+
                 int retCode = 0;
                 try
                 {
@@ -160,6 +158,9 @@ namespace Com.Eucalyptus.Windows.EucaWindowsService
                     Log(string.Format("[FAILURE] 'PostInstllation.exe --norecovery generated exception ({0})", e.Message));
                 }
 
+
+                /* MODIFIED 2013-04-30 - Carl Partridge
+                // REMOVED PV DRIVER INSTALLATION
                 string xenPVDir = _installLocation + "\\xenpv";                
                 try
                 {
@@ -233,6 +234,7 @@ namespace Com.Eucalyptus.Windows.EucaWindowsService
                     }
                     catch (Exception) { }
                 }
+                 */
 
             }
             catch (Exception e)

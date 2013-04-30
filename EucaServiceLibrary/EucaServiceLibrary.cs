@@ -362,7 +362,7 @@ namespace Com.Eucalyptus.Windows.EucaServiceLibrary
                 
                 try
                 {   // this is to make sure system is fully booted and is in stable state
-                    // also we don't want to wait too long before reboot, because it opens RDP.
+                    // also we don't want to wait too long before reboot else Windows opens RDP.
                     Bootstrapper.PollNetworkConnection(true);
                 }
                 catch (Exception e)

@@ -100,7 +100,7 @@ namespace Com.Eucalyptus.Windows
     {
         internal class OSEnvironment
         {
-            public enum Enum_OsName { XP, Vista, Win7, S2003, S2003R2, S2008, S2008R2, NOTYETDETERMINED, UNKNOWN }
+            public enum Enum_OsName { XP, Vista, Win7, S2003, S2003R2, S2008, S2008R2, S2012, NOTYETDETERMINED, UNKNOWN }
 
             private static Enum_OsName _osName = Enum_OsName.NOTYETDETERMINED;
             internal static Enum_OsName OS_Name
@@ -115,7 +115,7 @@ namespace Com.Eucalyptus.Windows
                             using (ManagementObject manObj =
                                 WMIUtil.QueryLocalWMI(@"\\.\root\CIMV2", "Select * from win32_operatingsystem"))
                             {
-                                osName = (string)manObj["Name"];
+                                osName = (string)manObj["Name"];  // Note - a more future-proof way here might be to check the OS version 
                             }
                             if (osName.Contains("XP"))
                             {
@@ -136,6 +136,10 @@ namespace Com.Eucalyptus.Windows
                             else if (osName.Contains("2008 R2"))
                             {
                                 _osName = Enum_OsName.S2008R2;
+                            }
+                            else if (osName.Contains("2012"))
+                            {
+                                _osName = Enum_OsName.S2012;
                             }
                             else if (osName.Contains("2008"))
                             {
@@ -340,6 +344,7 @@ namespace Com.Eucalyptus.Windows
                 {
                     if (Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008 ||
                         Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008R2 ||
+                        Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2012 ||
                         Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.Vista ||
                         Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.Win7)
                     {
@@ -362,6 +367,7 @@ namespace Com.Eucalyptus.Windows
                 {
                     if (Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008 ||
                         Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008R2 ||
+                        Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2012 ||
                         Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.Vista ||
                         Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.Win7)
                     {
@@ -377,9 +383,11 @@ namespace Com.Eucalyptus.Windows
                     Log(string.Format("[FAILURE] Could not turn on recovery option ({0})", e.Message));
                     return -1;
                 }
-            }
+            } 
             else if (opt == "--xenpv")
             {
+                return 0; ///*  MODIFIED (Carl Patridge) - remove driver installation
+                /*
                 string dir = null;
                 if (args.Length >= 2)
                     dir = args[1];
@@ -396,10 +404,12 @@ namespace Com.Eucalyptus.Windows
                 {
                     Log(string.Format("[FAILURE] Could not install xenpv drivers({0})", e.Message));
                     return -1;
-                }
+                } */
             }
             else if (opt == "--virtio")
             {
+                return 0; /*  MODIFIED (Carl Patridge) - remove driver installation
+                                          
                 string dir = null;
                 if (args.Length >= 2)
                     dir = args[1];
@@ -417,8 +427,8 @@ namespace Com.Eucalyptus.Windows
                 {
                     Log(string.Format("[FAILURE] Could not install virtio drivers({0})", e.Message));
                     return -1;
-                }
-            }
+                } */
+            } 
             else if (opt == "--cleanup")
             {
                 string dir = null;
@@ -696,6 +706,7 @@ namespace Com.Eucalyptus.Windows
             /// 
        
            if (!(OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008 ||
+                    Program.OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2012 ||
                     OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008R2 ||
                     OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.Win7))
             {
@@ -814,6 +825,9 @@ namespace Com.Eucalyptus.Windows
 
         static private void InstallXenPVDrivers(string baseDir)
         {
+            return;
+
+            /*
             OSEnvironment.Enum_OsName osName = OSEnvironment.OS_Name;
             bool is64bit = OSEnvironment.Is64bit;
 
@@ -856,11 +870,14 @@ namespace Com.Eucalyptus.Windows
                 if (!(exitCode == 0 || exitCode == 1602)) // complete or user canceled installation
                     throw new Exception(string.Format("XenPV installer returned exit code={0})", exitCode));                
             }
+             */
         }
 
         // this directory path is based on Virtio driver version 1.1.11-0
         static private void InstallVirtIODrivers(string baseDir)        
         {
+            return; 
+            /*
             if (!Directory.Exists(baseDir))
                 throw new Exception(string.Format("Can't find the driver directory ({0})", baseDir));
 
@@ -921,6 +938,7 @@ namespace Com.Eucalyptus.Windows
 
             // this call may throw an exception if failed
             DriverManager.Instance.InstallDrivers(new string[]{netDir, storDir});           
+             */
         }
 
         // clean up any files upon uninstallation of Eucalyptus package
