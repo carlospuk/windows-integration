@@ -238,7 +238,7 @@ namespace Com.Eucalyptus
             }
             catch (Exception e)
             {
-                throw new EucaException("Regitry update failed: " + e.Message, e);
+                throw new EucaException("Registry update failed: " + e.Message, e);
             }
         }
 

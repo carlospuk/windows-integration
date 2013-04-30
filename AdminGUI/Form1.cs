@@ -636,9 +636,9 @@ namespace Com.Eucalyptus.Windows
         private void addWin2012RegKeys()
         {
             // Set OOBE reg keys - see http://technet.microsoft.com/en-us/library/jj200142
-            EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedProductKey", 1);
-            EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedLanguageSelection", 1);
-            EucaUtil.SetRegistryValue(Registry.LocalMachine, WIN_SETUP_REGISTRYPATH, "HWRequirementChecks", 0);
+            EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedProductKey", 1, true);
+            EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedLanguageSelection", 1, true);
+            EucaUtil.SetRegistryValue(Registry.LocalMachine, WIN_SETUP_REGISTRYPATH, "HWRequirementChecks", 0, true);
         }
     }
 
