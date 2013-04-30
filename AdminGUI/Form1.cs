@@ -563,15 +563,16 @@ namespace Com.Eucalyptus.Windows
                     File.Delete(sysprepDest);
 
                 File.Copy(answerPath, sysprepDest);
-                string sysprepExec = string.Format("{0}\\sysprep\\sysprep.exe",
-                    Environment.GetFolderPath(Environment.SpecialFolder.System));
+                string sysprepExec = string.Format("{0}\\system32\\sysprep\\sysprep.exe",
+                    Environment.GetFolderPath(Environment.SpecialFolder.Windows));
 
                 string arg = string.Format("/generalize /oobe /quit /unattend:\"{0}\"", sysprepDest);
-                EucaLogger.Debug("sysprep argument: " + arg);
 
                 System.Diagnostics.Process proc = new System.Diagnostics.Process();
                 proc.StartInfo.UseShellExecute = true;
 
+                EucaLogger.Debug("sysprep exe: " + sysprepExec);
+                EucaLogger.Debug("sysprep argument: " + arg);
                 Win32_CommandResult result = EucaUtil.SpawnProcessAndWait(sysprepExec, arg);                
                 if (result.ExitCode != 0)
                 {
@@ -581,14 +582,13 @@ namespace Com.Eucalyptus.Windows
                 }
                 else
                 {
+                    // Windows 2012 Specific final steps
                     if (OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2012)
                     {
                         MessageBox.Show("Sysprep finished successfully. Press OK to continue with Windows 2012-specific configuration.  (This will set OOBE registry keys to prevent OOBE windows appearing on startup)");
 
                         // Set OOBE reg keys - see http://technet.microsoft.com/en-us/library/jj200142
-                        EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedProductKey", 1);
-                        EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedLanguageSelection", 1);
-                        EucaUtil.SetRegistryValue(Registry.LocalMachine, WIN_SETUP_REGISTRYPATH, "HWRequirementChecks", 0);
+                        addWin2012RegKeys();
 
                         MessageBox.Show("Sysprep finished successfully. You can shutdown the VM and register it with Eucalyptus front-end - remember to delete your C:\\SkipIC.txt file now if you have created one.");
 
@@ -605,6 +605,7 @@ namespace Com.Eucalyptus.Windows
                 return;
             }
         }
+
 
         private void buttonAnswerFile_Click(object sender, EventArgs e)
         {
@@ -623,6 +624,20 @@ namespace Com.Eucalyptus.Windows
                 EucaLogger.Exception("Unexpected exception thrown while opening sysprep answer file", ie);
                 return;
             }
+        }
+
+        private void btnAddWin2012RegKeys_Click(object sender, EventArgs e)
+        {
+            addWin2012RegKeys();
+        }
+
+
+        private void addWin2012RegKeys()
+        {
+            // Set OOBE reg keys - see http://technet.microsoft.com/en-us/library/jj200142
+            EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedProductKey", 1);
+            EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedLanguageSelection", 1);
+            EucaUtil.SetRegistryValue(Registry.LocalMachine, WIN_SETUP_REGISTRYPATH, "HWRequirementChecks", 0);
         }
     }
 
