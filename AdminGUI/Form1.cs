@@ -17,7 +17,8 @@ namespace Com.Eucalyptus.Windows
                     "SOFTWARE", "Eucalyptus Systems", "Eucalyptus"};
         private string[] OOBE_REGISTRYPATH = new string[]{
                     "Software", "microsoft", "Windows", "CurrentVersion", "Setup", "OOBE"};
-
+        private string[] WIN_SETUP_REGISTRYPATH = new string[]{
+                    "Software", "microsoft", "windows server", "setup"};
 
         private ADConfiguration _adConfig;
         public EucaConfigForm()
@@ -587,6 +588,7 @@ namespace Com.Eucalyptus.Windows
                         // Set OOBE reg keys - see http://technet.microsoft.com/en-us/library/jj200142
                         EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedProductKey", 1);
                         EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedLanguageSelection", 1);
+                        EucaUtil.SetRegistryValue(Registry.LocalMachine, WIN_SETUP_REGISTRYPATH, "HWRequirementChecks", 0);
 
                         MessageBox.Show("Sysprep finished successfully. You can shutdown the VM and register it with Eucalyptus front-end - remember to delete your C:\\SkipIC.txt file now if you have created one.");
 
