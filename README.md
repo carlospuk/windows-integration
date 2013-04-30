@@ -1,5 +1,28 @@
-windows-integration
-===================
+windows-integration - driverless edition 2012
+==============================================
+
+This is a modified version of the main Eucalyptus windows integration service that will:
+
+- Install and run on Windows Server 2012
+- Contains no PV drivers, so you can 'roll your own'
+
+
+
+The main changes to the solution are:
+
+- All PV drivers have been removed, and will not install
+- Solution is re-built against .NET 4  (.NET 3.5 not installed on WinServer 2012 by default)
+- Added Windows Server 2012 OS detection  (although not really used in code for anything yet)
+- Added notes to install GUI to warn users about lack of drivers.
+
+
+It's designed to be packaged into an .ISO with the latest Fedora drivers for KVM - for this reason, the installation GUI prints a note to users that they can point device manager at the .ISO to update the drivers.
+
+
+
+
+The notes below are left unchanged from the original:
+
 
 Eucalyptus windows integration is an implementation of Windows Service that runs in the Windows VM instances to prepare the VMs to work with Eucalyptus backend. The installation and usage manuals can be found at http://www.eucalyptus.com/docs.
 
