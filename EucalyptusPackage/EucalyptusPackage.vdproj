@@ -195,6 +195,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_CA9ACEE822A4405AADBE0EA3F4F1867E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D106DB879F904E6CA9E14C7DF7D322BB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -438,11 +444,6 @@
             "AssemblyAsmDisplayName" = "8:EucaCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0D10D2335459E2468719A3701582C0E3"
-                    {
-                    "Name" = "8:EucaCommon.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EucaCommon.dll"
             "TargetName" = "8:"
@@ -509,11 +510,6 @@
             "AssemblyAsmDisplayName" = "8:EucaService, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3D0C2E5312D1E9DC2376FA8C8962D2DC"
-                    {
-                    "Name" = "8:EucaService.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EucaService.dll"
             "TargetName" = "8:"
@@ -540,11 +536,6 @@
             "AssemblyAsmDisplayName" = "8:EucaCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_55158D1717266658DF9C3665368DEAED"
-                    {
-                    "Name" = "8:EucaCommon.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EucaCommon.dll"
             "TargetName" = "8:"
@@ -591,11 +582,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.NetFwTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_98367852B5A8858A8AB26380E19EF7B6"
-                    {
-                    "Name" = "8:Interop.NetFwTypeLib.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.NetFwTypeLib.dll"
             "TargetName" = "8:"
@@ -733,11 +719,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.NetFwTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C666F66DD22B1A1378C2BDF045ED6226"
-                    {
-                    "Name" = "8:Interop.NetFwTypeLib.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.NetFwTypeLib.dll"
             "TargetName" = "8:"
@@ -755,6 +736,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA9ACEE822A4405AADBE0EA3F4F1867E"
+            {
+            "SourcePath" = "8:..\\EucaServiceLibrary\\sysprep_answers\\answer_server2012_amd64.xml"
+            "TargetName" = "8:answer_server2012_amd64.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_6F48EDB5DE1B4BEF9E57944A34260AC7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D106DB879F904E6CA9E14C7DF7D322BB"
@@ -907,7 +908,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Eucalyptus Windows Integration (driverless edition 2012)"
         "ProductCode" = "8:{9EFC65FF-7187-468C-B336-5EF818F95D43}"
-        "PackageCode" = "8:{107C9436-D4DC-4772-99D7-833E09D513FA}"
+        "PackageCode" = "8:{D55171A0-D1A2-446E-BC74-C3CA6A7AD73C}"
         "UpgradeCode" = "8:{18E08644-D7EF-416F-82D3-5945775122C8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

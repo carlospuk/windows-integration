@@ -15,6 +15,9 @@ namespace Com.Eucalyptus.Windows
     {
         private string[] EUCALYPTUS_REGISTRY_PATH = new string[]{
                     "SOFTWARE", "Eucalyptus Systems", "Eucalyptus"};
+        private string[] OOBE_REGISTRYPATH = new string[]{
+                    "Software", "microsoft", "Windows", "CurrentVersion", "Setup", "OOBE"};
+
 
         private ADConfiguration _adConfig;
         public EucaConfigForm()
@@ -513,6 +516,8 @@ namespace Com.Eucalyptus.Windows
                 }
                 else if (OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2008R2)
                     answerPath += "answer_server2008r2_amd64.xml";
+                else if (OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2012)
+                    answerPath += "answer_server2012_amd64.xml";
                 else if (OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.Win7)
                 {
                     if (OSEnvironment.Is64bit)
@@ -575,7 +580,19 @@ namespace Com.Eucalyptus.Windows
                 }
                 else
                 {
-                    MessageBox.Show("Sysprep finished successfully. You can shutdown the VM and register it with Eucalyptus front-end.");
+                    if (OSEnvironment.OS_Name == OSEnvironment.Enum_OsName.S2012)
+                    {
+                        MessageBox.Show("Sysprep finished successfully. Press OK to continue with Windows 2012-specific configuration.  (This will set OOBE registry keys to prevent OOBE windows appearing on startup)");
+
+                        // Set OOBE reg keys - see http://technet.microsoft.com/en-us/library/jj200142
+                        EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedProductKey", 1);
+                        EucaUtil.SetRegistryValue(Registry.LocalMachine, OOBE_REGISTRYPATH, "SetupDisplayedLanguageSelection", 1);
+
+                        MessageBox.Show("Sysprep finished successfully. You can shutdown the VM and register it with Eucalyptus front-end - remember to delete your C:\\SkipIC.txt file now if you have created one.");
+
+                    }
+                    else
+                        MessageBox.Show("Sysprep finished successfully. You can shutdown the VM and register it with Eucalyptus front-end.");
                     System.Environment.Exit(0);
                 }
             }

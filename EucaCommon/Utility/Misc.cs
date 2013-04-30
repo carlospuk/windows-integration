@@ -33,7 +33,7 @@ namespace Com.Eucalyptus
 {
     public class OSEnvironment
     {
-        public enum Enum_OsName { XP, Vista, Win7, S2003, S2003R2, S2008, S2008R2, NOTYETDETERMINED, UNKNOWN }
+        public enum Enum_OsName { XP, Vista, Win7, S2003, S2003R2, S2008, S2012, S2008R2, NOTYETDETERMINED, UNKNOWN }
 
         private static Enum_OsName _osName = Enum_OsName.NOTYETDETERMINED;
         public static Enum_OsName OS_Name
@@ -69,6 +69,10 @@ namespace Com.Eucalyptus
                         else if (osName.Contains("2008 R2"))
                         {
                             _osName = Enum_OsName.S2008R2;
+                        }
+                        else if (osName.Contains("2012"))
+                        {
+                            _osName = Enum_OsName.S2012;
                         }
                         else if (osName.Contains("2008"))
                         {
