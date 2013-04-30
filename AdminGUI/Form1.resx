@@ -127,7 +127,7 @@ information for the instance.</value>
   <data name="label9.Text" xml:space="preserve">
     <value>This adds Windows 2012-specific keys to the registry to prevent certain OOBE pages appearing.
 
-This step is performed automatically after Sysprep, but you can do it by clicking above.
+This step is performed automatically after Sysprep, but you can do it now by clicking above.
 
 See http://technet.microsoft.com/en-us/library/jj200142</value>
   </data>

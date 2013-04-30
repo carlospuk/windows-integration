@@ -563,8 +563,8 @@ namespace Com.Eucalyptus.Windows
                     File.Delete(sysprepDest);
 
                 File.Copy(answerPath, sysprepDest);
-                string sysprepExec = string.Format("{0}\\system32\\sysprep\\sysprep.exe",
-                    Environment.GetFolderPath(Environment.SpecialFolder.Windows));
+                string sysprepExec = string.Format("{0}\\sysprep\\sysprep.exe",
+                    Environment.GetFolderPath(Environment.SpecialFolder.System));
 
                 string arg = string.Format("/generalize /oobe /quit /unattend:\"{0}\"", sysprepDest);
 
@@ -629,6 +629,7 @@ namespace Com.Eucalyptus.Windows
         private void btnAddWin2012RegKeys_Click(object sender, EventArgs e)
         {
             addWin2012RegKeys();
+            MessageBox.Show("The registry keys were added successfully.");
         }
 
 

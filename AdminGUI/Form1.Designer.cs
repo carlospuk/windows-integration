@@ -89,16 +89,16 @@ namespace Com.Eucalyptus.Windows
             this.textBoxRDPUsername = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.buttonRDPermissionApply = new System.Windows.Forms.Button();
-            this.tabPageExpert = new System.Windows.Forms.TabPage();
-            this.btnAddWin2012RegKeys = new System.Windows.Forms.Button();
+            this.tabPageWin2012 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnAddWin2012RegKeys = new System.Windows.Forms.Button();
             this.eucalTabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxSysprep.SuspendLayout();
             this.groupBoxFormatDrives.SuspendLayout();
             this.tabPageAD.SuspendLayout();
             this.tabPageRemoteDesktop.SuspendLayout();
-            this.tabPageExpert.SuspendLayout();
+            this.tabPageWin2012.SuspendLayout();
             this.SuspendLayout();
             // 
             // eucalTabControl
@@ -106,7 +106,7 @@ namespace Com.Eucalyptus.Windows
             this.eucalTabControl.Controls.Add(this.tabPageGeneral);
             this.eucalTabControl.Controls.Add(this.tabPageAD);
             this.eucalTabControl.Controls.Add(this.tabPageRemoteDesktop);
-            this.eucalTabControl.Controls.Add(this.tabPageExpert);
+            this.eucalTabControl.Controls.Add(this.tabPageWin2012);
             this.eucalTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eucalTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eucalTabControl.Location = new System.Drawing.Point(0, 0);
@@ -123,9 +123,9 @@ namespace Com.Eucalyptus.Windows
             this.tabPageGeneral.Controls.Add(this.groupBoxSysprep);
             this.tabPageGeneral.Controls.Add(this.groupBoxFormatDrives);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
-            this.tabPageGeneral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageGeneral.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageGeneral.Name = "tabPageGeneral";
-            this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageGeneral.Size = new System.Drawing.Size(438, 315);
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
@@ -137,9 +137,9 @@ namespace Com.Eucalyptus.Windows
             this.groupBoxSysprep.Controls.Add(this.buttonSysprep);
             this.groupBoxSysprep.Controls.Add(this.labelSysprepExplain);
             this.groupBoxSysprep.Location = new System.Drawing.Point(4, 110);
-            this.groupBoxSysprep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSysprep.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxSysprep.Name = "groupBoxSysprep";
-            this.groupBoxSysprep.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSysprep.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxSysprep.Size = new System.Drawing.Size(429, 193);
             this.groupBoxSysprep.TabIndex = 1;
             this.groupBoxSysprep.TabStop = false;
@@ -147,10 +147,10 @@ namespace Com.Eucalyptus.Windows
             // 
             // buttonAnswerFile
             // 
-            this.buttonAnswerFile.Location = new System.Drawing.Point(278, 136);
-            this.buttonAnswerFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAnswerFile.Location = new System.Drawing.Point(234, 136);
+            this.buttonAnswerFile.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAnswerFile.Name = "buttonAnswerFile";
-            this.buttonAnswerFile.Size = new System.Drawing.Size(140, 41);
+            this.buttonAnswerFile.Size = new System.Drawing.Size(184, 41);
             this.buttonAnswerFile.TabIndex = 2;
             this.buttonAnswerFile.Text = "Open and edit \r\nsysprep answer file";
             this.buttonAnswerFile.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@ namespace Com.Eucalyptus.Windows
             // buttonSysprep
             // 
             this.buttonSysprep.Location = new System.Drawing.Point(9, 136);
-            this.buttonSysprep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSysprep.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSysprep.Name = "buttonSysprep";
             this.buttonSysprep.Size = new System.Drawing.Size(201, 41);
             this.buttonSysprep.TabIndex = 1;
@@ -182,9 +182,9 @@ namespace Com.Eucalyptus.Windows
             // 
             this.groupBoxFormatDrives.Controls.Add(this.checkBoxFormatDrives);
             this.groupBoxFormatDrives.Location = new System.Drawing.Point(4, 5);
-            this.groupBoxFormatDrives.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFormatDrives.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxFormatDrives.Name = "groupBoxFormatDrives";
-            this.groupBoxFormatDrives.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFormatDrives.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxFormatDrives.Size = new System.Drawing.Size(429, 83);
             this.groupBoxFormatDrives.TabIndex = 0;
             this.groupBoxFormatDrives.TabStop = false;
@@ -194,7 +194,7 @@ namespace Com.Eucalyptus.Windows
             // 
             this.checkBoxFormatDrives.AutoSize = true;
             this.checkBoxFormatDrives.Location = new System.Drawing.Point(10, 24);
-            this.checkBoxFormatDrives.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxFormatDrives.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxFormatDrives.Name = "checkBoxFormatDrives";
             this.checkBoxFormatDrives.Size = new System.Drawing.Size(398, 36);
             this.checkBoxFormatDrives.TabIndex = 0;
@@ -236,7 +236,7 @@ namespace Com.Eucalyptus.Windows
             this.textBoxPwdConfirm.AcceptsTab = true;
             this.textBoxPwdConfirm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPwdConfirm.Location = new System.Drawing.Point(322, 126);
-            this.textBoxPwdConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPwdConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPwdConfirm.Name = "textBoxPwdConfirm";
             this.textBoxPwdConfirm.PasswordChar = '*';
             this.textBoxPwdConfirm.Size = new System.Drawing.Size(103, 21);
@@ -258,7 +258,7 @@ namespace Com.Eucalyptus.Windows
             // 
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.Location = new System.Drawing.Point(305, 275);
-            this.buttonClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(2);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(119, 28);
             this.buttonClear.TabIndex = 8;
@@ -306,7 +306,7 @@ namespace Com.Eucalyptus.Windows
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.Location = new System.Drawing.Point(159, 275);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(119, 28);
             this.buttonCancel.TabIndex = 7;
@@ -320,7 +320,7 @@ namespace Com.Eucalyptus.Windows
             this.textBoxADOU.AcceptsTab = true;
             this.textBoxADOU.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxADOU.Location = new System.Drawing.Point(140, 177);
-            this.textBoxADOU.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxADOU.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxADOU.Name = "textBoxADOU";
             this.textBoxADOU.Size = new System.Drawing.Size(286, 21);
             this.textBoxADOU.TabIndex = 5;
@@ -344,7 +344,7 @@ namespace Com.Eucalyptus.Windows
             this.textBoxADPassword.AcceptsTab = true;
             this.textBoxADPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxADPassword.Location = new System.Drawing.Point(140, 128);
-            this.textBoxADPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxADPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxADPassword.Name = "textBoxADPassword";
             this.textBoxADPassword.PasswordChar = '*';
             this.textBoxADPassword.Size = new System.Drawing.Size(103, 21);
@@ -357,7 +357,7 @@ namespace Com.Eucalyptus.Windows
             this.textBoxADUsername.AcceptsTab = true;
             this.textBoxADUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxADUsername.Location = new System.Drawing.Point(140, 76);
-            this.textBoxADUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxADUsername.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxADUsername.Name = "textBoxADUsername";
             this.textBoxADUsername.Size = new System.Drawing.Size(286, 21);
             this.textBoxADUsername.TabIndex = 2;
@@ -404,7 +404,7 @@ namespace Com.Eucalyptus.Windows
             this.buttonApply.Enabled = false;
             this.buttonApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonApply.Location = new System.Drawing.Point(14, 275);
-            this.buttonApply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonApply.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(119, 28);
             this.buttonApply.TabIndex = 6;
@@ -418,7 +418,7 @@ namespace Com.Eucalyptus.Windows
             this.textBoxADAddress.AcceptsTab = true;
             this.textBoxADAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxADAddress.Location = new System.Drawing.Point(140, 24);
-            this.textBoxADAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxADAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxADAddress.Name = "textBoxADAddress";
             this.textBoxADAddress.Size = new System.Drawing.Size(286, 21);
             this.textBoxADAddress.TabIndex = 1;
@@ -448,7 +448,7 @@ namespace Com.Eucalyptus.Windows
             this.buttonADPermissionRemove.Enabled = false;
             this.buttonADPermissionRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonADPermissionRemove.Location = new System.Drawing.Point(328, 74);
-            this.buttonADPermissionRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonADPermissionRemove.Margin = new System.Windows.Forms.Padding(2);
             this.buttonADPermissionRemove.Name = "buttonADPermissionRemove";
             this.buttonADPermissionRemove.Size = new System.Drawing.Size(96, 22);
             this.buttonADPermissionRemove.TabIndex = 107;
@@ -473,7 +473,7 @@ namespace Com.Eucalyptus.Windows
             // 
             this.buttonAddRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddRDP.Location = new System.Drawing.Point(328, 206);
-            this.buttonAddRDP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAddRDP.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAddRDP.Name = "buttonAddRDP";
             this.buttonAddRDP.Size = new System.Drawing.Size(96, 22);
             this.buttonAddRDP.TabIndex = 3;
@@ -487,7 +487,7 @@ namespace Com.Eucalyptus.Windows
             this.listBoxRDPermission.FormattingEnabled = true;
             this.listBoxRDPermission.ItemHeight = 15;
             this.listBoxRDPermission.Location = new System.Drawing.Point(14, 74);
-            this.listBoxRDPermission.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxRDPermission.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxRDPermission.Name = "listBoxRDPermission";
             this.listBoxRDPermission.Size = new System.Drawing.Size(300, 109);
             this.listBoxRDPermission.TabIndex = 104;
@@ -497,7 +497,7 @@ namespace Com.Eucalyptus.Windows
             // 
             this.buttonRDPermissionClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRDPermissionClose.Location = new System.Drawing.Point(159, 275);
-            this.buttonRDPermissionClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRDPermissionClose.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRDPermissionClose.Name = "buttonRDPermissionClose";
             this.buttonRDPermissionClose.Size = new System.Drawing.Size(119, 28);
             this.buttonRDPermissionClose.TabIndex = 5;
@@ -511,7 +511,7 @@ namespace Com.Eucalyptus.Windows
             this.textBoxRDPUsername.AcceptsTab = true;
             this.textBoxRDPUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRDPUsername.Location = new System.Drawing.Point(14, 207);
-            this.textBoxRDPUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRDPUsername.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxRDPUsername.Name = "textBoxRDPUsername";
             this.textBoxRDPUsername.Size = new System.Drawing.Size(299, 21);
             this.textBoxRDPUsername.TabIndex = 2;
@@ -534,7 +534,7 @@ namespace Com.Eucalyptus.Windows
             this.buttonRDPermissionApply.Enabled = false;
             this.buttonRDPermissionApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRDPermissionApply.Location = new System.Drawing.Point(14, 275);
-            this.buttonRDPermissionApply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRDPermissionApply.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRDPermissionApply.Name = "buttonRDPermissionApply";
             this.buttonRDPermissionApply.Size = new System.Drawing.Size(119, 28);
             this.buttonRDPermissionApply.TabIndex = 4;
@@ -542,17 +542,25 @@ namespace Com.Eucalyptus.Windows
             this.buttonRDPermissionApply.UseVisualStyleBackColor = true;
             this.buttonRDPermissionApply.Click += new System.EventHandler(this.buttonRDPermissionApply_Click);
             // 
-            // tabPageExpert
+            // tabPageWin2012
             // 
-            this.tabPageExpert.Controls.Add(this.label9);
-            this.tabPageExpert.Controls.Add(this.btnAddWin2012RegKeys);
-            this.tabPageExpert.Location = new System.Drawing.Point(4, 24);
-            this.tabPageExpert.Name = "tabPageExpert";
-            this.tabPageExpert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageExpert.Size = new System.Drawing.Size(438, 315);
-            this.tabPageExpert.TabIndex = 3;
-            this.tabPageExpert.Text = "Expert";
-            this.tabPageExpert.UseVisualStyleBackColor = true;
+            this.tabPageWin2012.Controls.Add(this.label9);
+            this.tabPageWin2012.Controls.Add(this.btnAddWin2012RegKeys);
+            this.tabPageWin2012.Location = new System.Drawing.Point(4, 24);
+            this.tabPageWin2012.Name = "tabPageWin2012";
+            this.tabPageWin2012.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageWin2012.Size = new System.Drawing.Size(438, 315);
+            this.tabPageWin2012.TabIndex = 3;
+            this.tabPageWin2012.Text = "Win2012";
+            this.tabPageWin2012.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(56, 107);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(331, 172);
+            this.label9.TabIndex = 1;
+            this.label9.Text = resources.GetString("label9.Text");
             // 
             // btnAddWin2012RegKeys
             // 
@@ -564,14 +572,6 @@ namespace Com.Eucalyptus.Windows
             this.btnAddWin2012RegKeys.UseVisualStyleBackColor = true;
             this.btnAddWin2012RegKeys.Click += new System.EventHandler(this.btnAddWin2012RegKeys_Click);
             // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(56, 107);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(331, 172);
-            this.label9.TabIndex = 1;
-            this.label9.Text = resources.GetString("label9.Text");
-            // 
             // EucaConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,7 +581,7 @@ namespace Com.Eucalyptus.Windows
             this.Controls.Add(this.eucalTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(452, 371);
             this.MinimumSize = new System.Drawing.Size(452, 371);
             this.Name = "EucaConfigForm";
@@ -597,7 +597,7 @@ namespace Com.Eucalyptus.Windows
             this.tabPageAD.PerformLayout();
             this.tabPageRemoteDesktop.ResumeLayout(false);
             this.tabPageRemoteDesktop.PerformLayout();
-            this.tabPageExpert.ResumeLayout(false);
+            this.tabPageWin2012.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -638,7 +638,7 @@ namespace Com.Eucalyptus.Windows
         private System.Windows.Forms.Button buttonAnswerFile;
         private System.Windows.Forms.Button buttonSysprep;
         private System.Windows.Forms.Label labelSysprepExplain;
-        private System.Windows.Forms.TabPage tabPageExpert;
+        private System.Windows.Forms.TabPage tabPageWin2012;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAddWin2012RegKeys;
 
