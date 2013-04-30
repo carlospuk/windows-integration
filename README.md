@@ -1,22 +1,34 @@
 windows-integration - driverless edition 2012
 ==============================================
 
-This is a modified version of the main Eucalyptus windows integration service that will:
+This is a modified version of the main Eucalyptus windows integration service that does the following:
 
-- Install and run on Windows Server 2012
-- Contains no PV drivers, so you can 'roll your own'
+- Installs and runs on Windows Server 2012 so you can install the Eucalyptus Windows Service
+- Correctly runs SysPrep without crashing
+- Performs additional Win-2012 specific registry key changes required.
+- Contains no PV drivers, so you can 'roll your own'.
 
 
 
 The main changes to the solution are:
 
-- All PV drivers have been removed, and will not install
+- All PV drivers have been removed
 - Solution is re-built against .NET 4  (.NET 3.5 not installed on WinServer 2012 by default)
-- Added Windows Server 2012 OS detection  (although not really used in code for anything yet)
+- Solution architecture is now AnyCPU so that SysPrep.exe runs.
+- Added Windows Server 2012 OS detection & corresponding answers file
+- Added code to insert Win2012 OOBE registry keys
+- Added Win2012-specific tab to GUI to add the registry keys as a standalone process
 - Added notes to install GUI to warn users about lack of drivers.
 
 
 It's designed to be packaged into an .ISO with the latest Fedora drivers for KVM - for this reason, the installation GUI prints a note to users that they can point device manager at the .ISO to update the drivers.
+
+You can download the latest pre-built .iso from here:
+http://static.fatattitude.com/Dump/eucalyptus-windows-integration-2012-driverless.zip
+
+
+
+IMPORTANT - The Eucalyptus Windows Service installs correctly and also injects the new Administrator password correctly into running instances, but at the moment I've experienced inconsistent results testing with Windows Server 2012 Essentials - sometimes the installation will fail while configuring itself.
 
 
 
